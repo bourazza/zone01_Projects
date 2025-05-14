@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Unbounded:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #C71585;
+            --secondary-color: #8B008B;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+        .navbar {
+            background-color: #111;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .error-content {
+            padding: 2rem;
+            text-align: center;
+        }
+        .error-code {
+            font-size: 5rem;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Groupie</div>
+    </nav>
+    <main class="error-content">
+        <div class="error-code">{{.ErrorCode}}</div>
+        <h1>{{.ErrorMessage}}</h1>
+    </main>
+</body>
+</html>

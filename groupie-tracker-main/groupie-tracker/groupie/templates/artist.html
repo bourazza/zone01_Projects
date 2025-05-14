@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artist Details</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <h1 class="logo">Artist Details</h1>
+    </header>
+    <main class="main-content">
+      <section class="artist-details">
+        <h2 class="artist-name">{{ .Artist.Name }}</h2>
+        <img class="artist-image" src="{{ .Artist.Image }}" alt="{{ .Artist.Name }}" />
+
+        <div class="artist-section">
+          <h3 class="artist-section-title">Members</h3>
+          <ul class="artist-list">
+            {{ range .Artist.Members }}
+              <li class="artist-list-item">{{ . }}</li>
+            {{ end }}
+          </ul>
+        </div>
+
+        <div class="artist-section">
+          <h3 class="artist-section-title">Creation Date</h3>
+          <p class="artist-bio">{{ .Artist.CreationDate }}</p>
+        </div>
+
+        <div class="artist-section">
+          <h3 class="artist-section-title">First Album</h3>
+          <p class="artist-bio">{{ .Artist.FirstAlbum }}</p>
+        </div>
+
+        <div class="artist-section">
+          <h3 class="artist-section-title">Locations</h3>
+          <ul class="artist-list">
+            {{ range .Artist.Locations }}
+              <li class="artist-list-item">{{ . }}</li>
+            {{ end }}
+          </ul>
+        </div>
+
+        <div class="artist-section">
+          <h3 class="artist-section-title">Concert Dates</h3>
+          {{ range $location, $dates := .Artist.ConcertDates }}
+            <h4>{{ $location }}</h4>
+            <ul class="artist-list">
+              {{ range $dates }}
+                <li class="artist-list-item">{{ . }}</li>
+              {{ end }}
+            </ul>
+          {{ end }}
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

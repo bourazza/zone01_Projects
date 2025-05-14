@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Groupie</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Unbounded:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="hero-section">
+      <h1 class="hero-title">Discover Music Artists</h1>
+      <input type="text" class="search-bar hero-search" placeholder="Search artists..." />
+    </div>
+    <main class="main-content"></main>
+      <div class="artists-grid">
+        {{range .}}
+        <div class="artist-card">
+          <a href="/artist?id={{.ID}}">
+            <img src="{{.Image}}" alt="{{.Name}}" />
+            <h2>{{.Name}}</h2>
+          </a>
+        </div>
+        {{end}}
+      </div>
+    </main>
+  </body>
+</html>
